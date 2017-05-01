@@ -12,6 +12,7 @@ import android.util.Log;
 
 import com.exercise.stupa.MainActivity;
 import com.exercise.stupa.R;
+import com.exercise.stupa.SplashActivity;
 import com.pusher.client.Pusher;
 import com.pusher.client.PusherOptions;
 import com.pusher.client.channel.Channel;
@@ -37,7 +38,6 @@ public class NotificationService  extends Service{
 
     @Override
     public IBinder onBind(Intent intent) {
-        // TODO: Return the communication channel to the service.
         throw new UnsupportedOperationException("Not yet implemented");
     }
 
@@ -67,7 +67,7 @@ public class NotificationService  extends Service{
 
                 }
 
-                Intent targetIntent = new Intent(getApplicationContext(), MainActivity.class);
+                Intent targetIntent = new Intent(getApplicationContext(), SplashActivity.class);
                 PendingIntent pendingIntent = PendingIntent.getActivity(getApplicationContext(), 0, targetIntent, PendingIntent.FLAG_UPDATE_CURRENT);
 
                 NotificationManager notificationManager =

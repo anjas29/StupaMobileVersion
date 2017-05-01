@@ -48,7 +48,7 @@ public class HistoryFragment extends Fragment {
                              Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_history, container, false);
         apiToken = getActivity().getSharedPreferences("DATA", Context.MODE_PRIVATE).getString("api_token","").toString();
-        Log.d("DEBUGS", apiToken);
+
         presenceList = (RecyclerView)view.findViewById(R.id.presence_list);
         layoutManager= new LinearLayoutManager(getActivity(), LinearLayoutManager.VERTICAL, false);
         presenceList.setHasFixedSize(true);
@@ -114,5 +114,4 @@ public class HistoryFragment extends Fragment {
             }
         });
     }
-
 }

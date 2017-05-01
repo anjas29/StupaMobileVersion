@@ -3,6 +3,7 @@ package com.exercise.stupa;
 import com.exercise.stupa.object.retrofit.LoginRequest;
 import com.exercise.stupa.object.retrofit.LoginResponse;
 import com.exercise.stupa.object.retrofit.PresenceResponse;
+import com.exercise.stupa.object.retrofit.ProfilResponse;
 
 import retrofit2.Call;
 import retrofit2.http.Body;
@@ -20,4 +21,7 @@ public interface StupaApi {
     
     @GET("presence")
     Call<PresenceResponse> getPresence();
+
+    @GET("profil")
+    Call<ProfilResponse> getProfil();
 }
