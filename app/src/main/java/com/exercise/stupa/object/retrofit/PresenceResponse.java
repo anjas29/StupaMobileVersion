@@ -1,5 +1,6 @@
 package com.exercise.stupa.object.retrofit;
 
+import com.exercise.stupa.object.Presence;
 import com.exercise.stupa.object.Present;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
@@ -17,7 +18,7 @@ public class PresenceResponse {
 
     @SerializedName("data")
     @Expose
-    private ArrayList<Present> data;
+    private ArrayList<Presence> data;
 
     public boolean isSuccess() {
         return success;
@@ -27,11 +28,11 @@ public class PresenceResponse {
         this.success = success;
     }
 
-    public ArrayList<Present> getData() {
+    public ArrayList<Presence> getData() {
         return data;
     }
 
-    public void setData(ArrayList<Present> data) {
+    public void setData(ArrayList<Presence> data) {
         this.data = data;
     }
 }

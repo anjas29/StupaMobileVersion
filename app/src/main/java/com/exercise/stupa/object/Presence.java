@@ -7,24 +7,26 @@ import com.google.gson.annotations.SerializedName;
  * Created by anjas on 30/04/17.
  */
 
-public class Present {
+public class Presence {
+
+    @SerializedName("presence")
+    @Expose
+    private PresentDetail presence;
 
     @SerializedName("present")
     @Expose
     private String present;
 
-    @SerializedName("course")
-    @Expose
-    private String course;
-
     @SerializedName("created_at")
     @Expose
     private String created_at;
 
-    public Present(String present, String course, String created_at) {
-        this.present = present;
-        this.course = course;
-        this.created_at = created_at;
+    public PresentDetail getPresence() {
+        return presence;
+    }
+
+    public void setPresence(PresentDetail presence) {
+        this.presence = presence;
     }
 
     public String getPresent() {
@@ -33,14 +35,6 @@ public class Present {
 
     public void setPresent(String present) {
         this.present = present;
-    }
-
-    public String getCourse() {
-        return course;
-    }
-
-    public void setCourse(String course) {
-        this.course = course;
     }
 
     public String getCreated_at() {

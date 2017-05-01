@@ -11,6 +11,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 
+import com.exercise.stupa.adapter.NotificationService;
 import com.exercise.stupa.object.retrofit.LoginRequest;
 import com.exercise.stupa.object.retrofit.LoginResponse;
 
@@ -63,15 +64,22 @@ public class LoginActivity extends AppCompatActivity {
         loginResponseCall.enqueue(new Callback<LoginResponse>() {
             @Override
             public void onResponse(Call<LoginResponse> call, Response<LoginResponse> response) {
+                pd.dismiss();
                 LoginResponse loginData = response.body();
 
                 if(loginData.isSuccess()){
                     SharedPreferences.Editor editor = sharedPreferences.edit();
                     editor.putBoolean("login", true);
+                    editor.putString("id", loginData.getData().getId());
                     editor.putString("name", loginData.getData().getName());
+                    editor.putString("student_number", loginData.getData().getStudent_number());
                     editor.putString("api_token", loginData.getApi_token());
 
                     editor.commit();
+                    Intent serviceIntent = new Intent(LoginActivity.this, NotificationService.class);
+                    serviceIntent.putExtra("channel", loginData.getData().getId());
+                    Log.d("DEBUGS", "STARTED");
+                    startService(serviceIntent);
 
                     Intent intent = new Intent(getApplicationContext(), MainActivity.class);
                     startActivity(intent);

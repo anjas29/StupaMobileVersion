@@ -51,6 +51,7 @@
             android:layout_alignStart="@+id/presentView"
             android:layout_below="@+id/view"
             android:layout_marginTop="5dp"
+            android:layout_marginBottom="3dp"
             android:text="Student attend the course" />
         <View
             android:id="@+id/view"

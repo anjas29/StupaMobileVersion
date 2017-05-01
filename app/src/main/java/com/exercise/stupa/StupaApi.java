@@ -7,6 +7,7 @@ import com.exercise.stupa.object.retrofit.PresenceResponse;
 import retrofit2.Call;
 import retrofit2.http.Body;
 import retrofit2.http.GET;
+import retrofit2.http.Headers;
 import retrofit2.http.POST;
 
 /**
@@ -16,7 +17,7 @@ import retrofit2.http.POST;
 public interface StupaApi {
     @POST("login")
     Call<LoginResponse> postLogin(@Body LoginRequest loginRequest);
-
+    
     @GET("presence")
-    Call<PresenceResponse> getDataNews();
+    Call<PresenceResponse> getPresence();
 }

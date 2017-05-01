@@ -1,5 +1,6 @@
 package com.exercise.stupa.adapter;
 
+import android.content.Context;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -15,7 +16,13 @@ import java.util.ArrayList;
  */
 
 public class ListPresentAdapter extends RecyclerView.Adapter<ListPresentViewHolder> {
+    Context context;
     ArrayList<Present> items;
+
+    public ListPresentAdapter(Context context, ArrayList<Present> items) {
+        this.context = context;
+        this.items = items;
+    }
 
     @Override
     public ListPresentViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
@@ -26,11 +33,34 @@ public class ListPresentAdapter extends RecyclerView.Adapter<ListPresentViewHold
 
     @Override
     public void onBindViewHolder(ListPresentViewHolder holder, int position) {
-        holder.imageView.setImageResource(R.drawable.circle_green);
-        holder.descriptionView.setText(items.get(position).getPresent());
         holder.presentView.setText(items.get(position).getPresent());
         holder.courseView.setText(items.get(position).getCourse());
         holder.dateView.setText(items.get(position).getCreated_at());
+        String presence = items.get(position).getPresent();
+        String description;
+        switch (presence){
+            case "Presence":
+                holder.imageView.setImageResource(R.drawable.circle_green);
+                description = "Student attend the course.";
+                break;
+            case "Sick":
+                holder.imageView.setImageResource(R.drawable.circle_yellow);
+                description = "Student is sick.";
+                break;
+            case "Permission":
+                holder.imageView.setImageResource(R.drawable.circle_grey);
+                description = "Student has another business.";
+                break;
+            case "Unknown":
+                holder.imageView.setImageResource(R.drawable.circle_red);
+                description = "Without any permission.";
+                break;
+            default:
+                holder.imageView.setImageResource(R.drawable.circle_green);
+                description = "Student attend the course.";
+                break;
+        }
+        holder.descriptionView.setText(description);
     }
 
     @Override
