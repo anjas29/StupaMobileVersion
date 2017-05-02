@@ -10,7 +10,7 @@ import android.view.MenuItem;
 import android.widget.TextView;
 
 public class MainActivity extends AppCompatActivity {
-    Fragment dashboardFragment, historyFragment, currentFragment;
+    Fragment dashboardFragment, historyFragment, scheduleFragment, currentFragment;
     private BottomNavigationView.OnNavigationItemSelectedListener mOnNavigationItemSelectedListener
             = new BottomNavigationView.OnNavigationItemSelectedListener() {
 
@@ -27,6 +27,11 @@ public class MainActivity extends AppCompatActivity {
                 case R.id.navigation_history:
                     historyFragment = new HistoryFragment();
                     currentFragment = historyFragment;
+                    fragmentManager.beginTransaction().replace(R.id.content, currentFragment).commit();
+                    return true;
+                case R.id.navigation_schedule:
+                    scheduleFragment = new ScheduleFragment();
+                    currentFragment = scheduleFragment;
                     fragmentManager.beginTransaction().replace(R.id.content, currentFragment).commit();
                     return true;
             }

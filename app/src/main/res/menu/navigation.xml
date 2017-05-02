@@ -9,5 +9,8 @@
         android:id="@+id/navigation_history"
         android:icon="@drawable/ic_notifications_black_24dp"
         android:title="Presence" />
-
+    <item
+        android:id="@+id/navigation_schedule"
+        android:icon="@drawable/ic_insert_invitation_black_48dp"
+        android:title="Schedule" />
 </menu>
