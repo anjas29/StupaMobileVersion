@@ -77,7 +77,7 @@ public class NotificationService  extends Service{
                         .setContentTitle(course)
                         .setContentText(presence)
                         .setSound(RingtoneManager.getDefaultUri(RingtoneManager.TYPE_NOTIFICATION))
-                        .setSmallIcon(R.mipmap.ic_launcher).build();
+                        .setSmallIcon(R.drawable.logo_black).build();
                 notificationManager.notify(0, notification);
             }
         });

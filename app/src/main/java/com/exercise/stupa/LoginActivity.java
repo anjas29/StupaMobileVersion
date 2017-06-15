@@ -78,7 +78,7 @@ public class LoginActivity extends AppCompatActivity {
                     editor.commit();
                     Intent serviceIntent = new Intent(LoginActivity.this, NotificationService.class);
                     serviceIntent.putExtra("channel", loginData.getData().getId());
-                    Log.d("DEBUGS", "STARTED");
+
                     startService(serviceIntent);
 
                     Intent intent = new Intent(getApplicationContext(), MainActivity.class);
